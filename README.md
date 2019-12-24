@@ -6,7 +6,7 @@ chat-space データベース設計
 
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false|index:true｜
+|name|string|null: false,index:true｜
 
 ### Association
 - has_many :groups_users
@@ -17,7 +17,7 @@ chat-space データベース設計
 
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false|
+|name|string|null: false,unique: true|
 
 ### Association
 - has_many :groups_users
