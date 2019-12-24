@@ -6,8 +6,7 @@ chat-space データベース設計
 
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false|
-|email|string|null: false|
+|name|string|null: false|index:true｜
 
 ### Association
 - has_many :groups_users
@@ -29,10 +28,10 @@ chat-space データベース設計
 
 |Column|Type|Options|
 |------|----|-------|
-|text|text|null: false|
-|image|string|null: false|
-|user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
+|text|text|
+|image|string|
+|user|references|null: false, foreign_key: true|
+|group|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :group
@@ -42,8 +41,8 @@ chat-space データベース設計
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true|
+|group|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :group
