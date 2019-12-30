@@ -1,0 +1,18 @@
+.chat-side
+  .side-header    
+    .side-header__box
+      %p.side-header__box__user--name
+        shuji.yamamoto
+      %ul.side-header__box__menu
+        %li.side-header__box__menu__new-group
+          =link_to "#" do
+            -# = fa_icon 'pencil-square-o', class: 'icon'
+        %li.side-header__box__menu__edit-user
+          =link_to "#" do
+            -# = fa_icon 'cog', class: 'icon'
+  .groups
+    .group
+      .group__group--name
+        仮置き
+      .group__latest--message
+        仮置き

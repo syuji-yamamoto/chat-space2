@@ -1,0 +1,128 @@
+* {
+  box-sizing: border-box;
+}
+
+.chat-main{
+  width: calc(100vw - 300px);
+  float: right;
+  // ヘッダー部分
+  .main-header{
+    height: 100px;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: solid 1px #eee;
+    overflow: scroll;
+     a{
+      color: $flash-color;
+    }
+    &__left-box{
+      margin-top:35px;
+      float:left;
+      &__current-group{
+        font-size: 20px;
+        color: #333;
+        margin-bottom: 15px;
+      }
+      &__member-list{
+        display: flex;
+        font-size: 12px;
+        color: $chat-user-color;
+        &__member{
+          list-style: none;
+        }
+      }
+    }
+    &__edit-btn{
+      float: right;
+    a.btn{
+      position: absolute;
+      height: 40px;
+      line-height: 40px;
+      padding: 0 20px;
+      margin-top: 28px;
+      border: solid 1px $flash-color;
+      top: 3px;
+      right: 40px;
+      text-decoration: none;
+      }
+    }
+  }
+// メッセージ部分
+  .messages{
+    height: calc(100vh - 190px);
+    padding: 46px 40px;
+    background-color: #fafafa;
+    overflow: scroll;
+    .message{
+      padding-bottom: 40px;
+      &__upper-info{
+        display: flex;
+        margin-bottom: 10px;
+        &__talker{
+          color: $chat-text-color;
+          font-size: 16px;
+          font-weight: bold;
+        }
+        &__date{
+          color: $chat-user-color;
+          font-size: 12px;
+          margin-left: 10px;
+        }
+      }
+      &__lower-message{
+        color: $chat-text-color;
+        font-size: 14px;
+        margin-bottom: 10px;
+      }
+    }
+  }
+// フォーム部分
+  .form {
+    background-color: #DDD;
+    height: 90px;
+    padding: 20px 40px;
+     form{
+      display: flex;
+      .input-box{
+        position: relative;
+        width: 100%;
+        &__message {
+          position: relative;
+          padding: 0 40px 0 10px;
+          color: #434a54;
+          height: 50px;
+          width: calc(100% - 100px);
+          border-style: none;
+        }
+        &__image {
+          position: absolute;
+          display: inline-block;
+          font-size: 1.3rem;
+          top: 10px;
+          right: 120px;
+          cursor: pointer;
+          .fa-image {
+            font:normal normal 14px/1 FontAwesome;
+            font-size: inherit;
+            text-rendering: auto;
+            -webkit-font-smoothing: antialiased;
+          }
+          .hidden {
+            display: none;
+          }
+        }
+        .submit-btn{
+          position: absolute;
+          width: 100px;
+          height: 50px;
+          padding: 0 30px;
+          margin-left: 15px;
+          background-color: $flash-color;
+          color: white;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
