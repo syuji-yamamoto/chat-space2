@@ -19,6 +19,8 @@ gem 'haml-rails'
 gem 'font-awesome-sass'
 gem 'font-awesome-rails'
 gem 'devise'
+gem 'carrierwave'
+gem 'mini_magick'
 
 group :development, :test do
   gem 'byebug', platform: :mri
