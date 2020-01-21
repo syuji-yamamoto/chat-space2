@@ -26,15 +26,20 @@ $(function() {
     $(".js-add-user").append(html);
   }
   function addMember(userId) {
-    let html = `<input value="${userId}" name="group[user_ids][]" type="hidden" id="group_user_ids_${userId}" />`;
+    let html = `<input value="${userId}" name="group[user_ids][]" type="hidden" id="group_user_ids_${userId}" class = "chat-group-user__selected_user_id" />`;
     $(`#${userId}`).append(html);
   }
   $("#user-search-field").on("keyup", function() {
     let input = $("#user-search-field").val();
+    let selected_users = [];
+    $(".chat-group-user__selected_user_id").each(function(){
+      selected_users.push($(this).attr("value"));
+    });
+
     $.ajax({
       type: "GET",
       url: "/users",
-      data: { keyword: input },
+      data: { keyword: input, selected_users: selected_users },
       dataType: "json"
     })
       .done(function(users) {
@@ -50,9 +55,9 @@ $(function() {
           addNoUser();
         }
       })
-      .fail(function() {
-        alert("通信エラーです。ユーザーが表示できません。");
-      });
+      // .fail(function() {
+      //   alert("通信エラーです。ユーザーが表示できません。");
+      // });
   });
   $(document).on("click", ".chat-group-user__btn--add", function() {
     const userName = $(this).data("user-name");

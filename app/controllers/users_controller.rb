@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def index
     return nil if params[:keyword] == ""
-    @users = User.where('name LIKE(?) and id != ?', "%#{params[:keyword]}%", current_user.id ).limit(10)
+    @users = User.where('name LIKE(?) and id NOT IN (?)', "%#{params[:keyword]}%", excluded_users)
     respond_to do |format|
       format.html
       format.json
@@ -23,5 +23,18 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :email)
+  end
+
+  def excluded_users
+    excluded_users = []
+    excluded_users << current_user.id
+    #グループに追加するユーザーを選択中の場合のみ発火
+    if params[:selected_users]
+      #selected_userの値を数値に変換
+      params[:selected_users].map do |user_id|
+        excluded_users << user_id.to_i
+      end
+    end
+    return excluded_users
   end
 end
