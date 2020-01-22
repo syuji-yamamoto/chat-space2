@@ -28,11 +28,9 @@ class UsersController < ApplicationController
   def excluded_users
     excluded_users = []
     excluded_users << current_user.id
-    #グループに追加するユーザーを選択中の場合のみ発火
     if params[:selected_users]
-      #selected_userの値を数値に変換
       params[:selected_users].map do |user_id|
-        excluded_users << user_id.to_i
+        excluded_users << user_id
       end
     end
     return excluded_users
