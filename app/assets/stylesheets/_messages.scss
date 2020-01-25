@@ -5,6 +5,7 @@
 .chat-main{
   width: calc(100vw - 300px);
   float: right;
+  position: relative;
   // ヘッダー部分
   .main-header{
     height: 100px;
