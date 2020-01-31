@@ -24,6 +24,11 @@ gem 'mini_magick'
 
 group :development, :test do
   gem 'byebug', platform: :mri
+  gem 'capistrano'
+  gem 'capistrano-rbenv'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano3-unicorn'
 end
 
 group :development do
