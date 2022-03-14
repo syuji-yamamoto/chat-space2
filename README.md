@@ -1,6 +1,7 @@
 # README
 
 chat-space データベース設計
+※change
 
 ## usersテーブル
 
